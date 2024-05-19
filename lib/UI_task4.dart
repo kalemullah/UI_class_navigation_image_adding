@@ -15,9 +15,7 @@ class Button extends StatelessWidget {
       ),
       body: Container(
         color: Colors.amber,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: ListView(
           children: [
             Align(
               alignment: Alignment.topLeft,

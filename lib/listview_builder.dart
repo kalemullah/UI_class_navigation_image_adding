@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:test/details.dart';
 
 class GridviewScreen extends StatelessWidget {
   const GridviewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List colors = [Colors.red, Colors.green, Colors.yellow, Colors.blue];
+    List images = ["assets/3.jpeg", "assets/4.jpeg", "assets/6.jpeg"];
+    List Name = ["poma", "gucci", "addidas"];
+    List price = ["\$123", "\$153", "\$126"];
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -44,7 +47,7 @@ class GridviewScreen extends StatelessWidget {
           SizedBox(height: 25),
           Expanded(
             child: GridView.builder(
-                itemCount: 10,
+                itemCount: images.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisSpacing: 10,
@@ -63,52 +66,43 @@ class GridviewScreen extends StatelessWidget {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
                         child: Column(children: [
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Container(
-                                height: 35,
-                                width: 35,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(color: Colors.grey),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          blurRadius: 5, color: Colors.grey)
-                                    ],
-                                    borderRadius: BorderRadius.circular(60)),
-                                child: Icon(Icons.favorite_border),
-                              ),
-                            ),
-                          ),
+                          FavIcons(),
                           Image.asset(
-                            'assets/image1.jpeg',
+                            images[index],
                             width: 90,
                             height: 130,
                             fit: BoxFit.cover,
                           ),
                           SizedBox(height: 10),
-                          Text('T-shirt', style: TextStyle(fontSize: 18)),
-                          Text('\$18',
+                          Text('${Name[index]}',
+                              style: TextStyle(fontSize: 18)),
+                          Text("${price[index]}",
                               style:
                                   TextStyle(fontSize: 18, color: Colors.red)),
                         ]),
                       ),
                       SizedBox(height: 10),
-                      Container(
-                        height: 35,
-                        width: 110,
-                        decoration: BoxDecoration(
-                            border:
-                                Border.all(color: Colors.grey.withOpacity(.5)),
-                            color: Colors.red,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        child: Center(
-                          child: Text('Buy now',
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.white)),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DetailsScreen()));
+                        },
+                        child: Container(
+                          height: 35,
+                          width: 110,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Colors.grey.withOpacity(.5)),
+                              color: Colors.red,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Center(
+                            child: Text('Buy now',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white)),
+                          ),
                         ),
                       )
                     ],
@@ -116,6 +110,52 @@ class GridviewScreen extends StatelessWidget {
                 }),
           )
         ]),
+      ),
+    );
+  }
+}
+
+class FavIcons extends StatefulWidget {
+  const FavIcons({
+    super.key,
+  });
+
+  @override
+  State<FavIcons> createState() => _FavIconsState();
+}
+
+bool isfav = false;
+
+class _FavIconsState extends State<FavIcons> {
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topRight,
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              isfav = !isfav;
+            });
+          },
+          child: Container(
+            height: 35,
+            width: 35,
+            decoration: BoxDecoration(
+                // ignore: dead_code
+                color: Colors.white,
+                // Colors.white,
+                border: Border.all(color: Colors.grey),
+                boxShadow: [BoxShadow(blurRadius: 5, color: Colors.grey)],
+                borderRadius: BorderRadius.circular(60)),
+            child: Icon(
+              Icons.favorite,
+              // ignore: dead_code
+              color: isfav ? Colors.red : Colors.grey,
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -10,6 +10,22 @@ class GridviewScreen extends StatelessWidget {
     List Name = ["poma", "gucci", "addidas"];
     List price = ["\$123", "\$153", "\$126"];
     return Scaffold(
+      // appBar: AppBar(
+      //   leading: Icon(Icons.arrow_back_ios),
+      //   centerTitle: true,
+      //   title: Text("Gridview"),
+      //   actions: [Icon(Icons.search), Icon(Icons.more_vert)],
+      //   backgroundColor: Colors.amber,
+      //   bottom: PreferredSize(
+      //     preferredSize: Size.fromHeight(140),
+      //     child: Container(
+      //       height: 140,
+      //       width: 40,
+      //       color: Colors.red,
+      //     ),
+      //   ),
+      // ),
+
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10),
         child: Column(children: [

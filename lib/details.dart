@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test/review_screen.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({super.key});
@@ -130,16 +131,22 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ],
             ),
             SizedBox(height: 35),
-            Container(
-              height: 45,
-              width: 300,
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.withOpacity(.5)),
-                  color: Colors.red,
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: Center(
-                child: Text('Buy now',
-                    style: TextStyle(fontSize: 18, color: Colors.white)),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ReviewScreen()));
+              },
+              child: Container(
+                height: 45,
+                width: 300,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.withOpacity(.5)),
+                    color: Colors.red,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Center(
+                  child: Text('Buy now',
+                      style: TextStyle(fontSize: 18, color: Colors.white)),
+                ),
               ),
             ),
           ]),

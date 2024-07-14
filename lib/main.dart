@@ -6,6 +6,7 @@ import 'package:test/expanded_flexible.dart';
 import 'package:test/list_view.dart';
 import 'package:test/listview_builder.dart';
 import 'package:test/prfile.dart';
+import 'package:test/quiz.dart';
 import 'package:test/tabbar.dart';
 import 'package:test/test.dart';
 import 'package:test/ui_task5.dart';
@@ -27,24 +28,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: CustomTabBar()
-        // Tabbar()
-        //  Profile(),
-        // Test()
-        // GridviewScreen()
-        //ListviewbuilderScreen()
-        // ListViewScreen(),
-        //UiTask5()
-        //UiTask5(),
-        // Button(),
-        //AddingImage()
-        // const expabded(),
-        );
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: Quiz(),
+      //CustomTabBar()
+      // Tabbar()
+      //  Profile(),
+      // Test()
+      // GridviewScreen()
+      //ListviewbuilderScreen()
+      // ListViewScreen(),
+      //UiTask5()
+      //UiTask5(),
+      // Button(),
+      //AddingImage()
+      // const expabded(),
+    );
   }
 }
 

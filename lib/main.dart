@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test/UI_task4.dart';
 import 'package:test/adding_image.dart';
+import 'package:test/bottombav_bar.dart';
 import 'package:test/bottomnav.dart';
+import 'package:test/cured_nav.dart';
 import 'package:test/custommtabr.dart';
 import 'package:test/expanded_flexible.dart';
 import 'package:test/list_view.dart';
@@ -46,7 +48,8 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const Quiz(),
+      child: BottomNavBar(),
+      //const Quiz(),
     );
     // MaterialApp(
     //   title: 'Flutter Demo',

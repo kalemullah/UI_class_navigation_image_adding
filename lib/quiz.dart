@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -68,8 +69,8 @@ List<String> options4 = [
   'opt4',
 ];
 
-List<String> tempAns = [];
-List<String> cAns = ['', '', '', ''];
+List<String> tempAns = ["", "", "", "", "", "", "", "", "", ""];
+List<String> cAns = ['opt4', 'opt4', 'opt4', 'opt4', 'opt4'];
 
 class _QuizState extends State<Quiz> {
   @override
@@ -86,20 +87,19 @@ class _QuizState extends State<Quiz> {
                     child: Column(
                       children: [
                         Container(
-                          height: 50,
+                          height: 50.h,
                           decoration: BoxDecoration(
                             color: Colors.green,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
                             children: [
-                              SizedBox(
-                                width: 30,
-                              ),
+                              SizedBox(width: 30.w),
                               Text(
                                 'this is questions Q no.${index + 1}',
                                 style: TextStyle(
                                     fontFamily: 'poppin',
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w300),
                               ),
                               SizedBox(
@@ -116,7 +116,11 @@ class _QuizState extends State<Quiz> {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    tempAns.add(options1[index]);
+                                    tempAns.insert(index, "${options1[index]}");
+
+                                    // tempAns.add(options1[index]);
+                                    print(
+                                        'this is temp answer ${tempAns[index]} and this is cAns ${cAns[index]}');
                                   },
                                   child: Container(
                                       height: 30,
@@ -131,7 +135,7 @@ class _QuizState extends State<Quiz> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    tempAns.add(options2[index]);
+                                    tempAns.insert(index, "${options2[index]}");
                                   },
                                   child: Container(
                                       height: 30,
@@ -142,7 +146,7 @@ class _QuizState extends State<Quiz> {
                                               BorderRadius.circular(5)),
                                       child: Center(
                                           child:
-                                              Text('A) ${options2[index]}'))),
+                                              Text('B) ${options2[index]}'))),
                                 ),
                               ]),
                         ),
@@ -153,7 +157,9 @@ class _QuizState extends State<Quiz> {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    tempAns.add(options3[index]);
+                                    print('this is index3  $index');
+                                    tempAns.insert(index, options3[index]);
+                                    // tempAns.add(options3[index]);
                                   },
                                   child: Container(
                                       height: 30,
@@ -168,7 +174,8 @@ class _QuizState extends State<Quiz> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    tempAns.add(options4[index]);
+                                    tempAns.insert(index, "${options4[index]}");
+                                    // tempAns.add(options4[index]);
                                   },
                                   child: Container(
                                       height: 30,
@@ -192,6 +199,7 @@ class _QuizState extends State<Quiz> {
           GestureDetector(
             onTap: () {
               int marks = 0;
+              print('${tempAns}');
               for (int i = 0; i < cAns.length; i++) {
                 if (tempAns[i] == cAns[i]) {
                   print('Correct');
@@ -200,7 +208,7 @@ class _QuizState extends State<Quiz> {
                   print('Incorrect');
                 }
               }
-              print("this is temp answer $tempAns");
+              print("this is temp answer $marks");
             },
             child: Container(
                 height: 50,

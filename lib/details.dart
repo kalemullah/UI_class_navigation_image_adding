@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test/custom_widget/colors.dart';
 import 'package:test/review_screen.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -141,7 +142,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 width: 300,
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey.withOpacity(.5)),
-                    color: Colors.red,
+                    color: appcolor,
                     borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: Center(
                   child: Text('Buy now',
